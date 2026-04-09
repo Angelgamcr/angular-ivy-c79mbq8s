@@ -1,0 +1,51 @@
+<div class="title-container">
+  <h1 class="title">Airport La Aurora</h1>
+</div>
+
+<div class="title-container">
+  <h3 class="title">Flight Dashboard</h3>
+</div>
+
+<br />
+
+<div class="row search-card">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Enter a valid ID"
+    style="margin-right:10px;"
+  />
+
+  <button (click)="onSearchButton()">Search by ID</button>
+</div>
+
+<div class="row">
+  <label>
+    <input type="checkbox" [(ngModel)]="showMaxOnly" (change)="onToggleMax()" />
+    Only show max capacity flights
+  </label>
+</div>
+
+<div class="row">
+  <div class="column">
+    <h2>Today flights:</h2>
+    <div style="min-height: 25px; background-color: #ffffff;">
+      <!-- render the flights here! -->
+      <single-flight
+        *ngFor="let flight of flightsFiltered"
+        [flight]="flight"
+        [updateTime]="flight.updateTime"
+        (flightUpdate)="onFlightUpdate($event)"
+      >
+      </single-flight>
+    </div>
+  </div>
+
+  <div class="column">
+    <h2>Updates:</h2>
+    <!-- render the update messages here! -->
+    <p class="update-item" *ngFor="let message of updateMessages">
+      {{ message }}
+    </p>
+  </div>
+</div>

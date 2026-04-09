@@ -1,0 +1,68 @@
+p,
+h1,
+h2,
+h3,
+h4,
+label {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+  margin-top: 10px;
+}
+
+.title {
+  margin: 0px;
+  padding: 0px;
+}
+
+.title-container {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.update-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 16px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: #ffffff;
+  border-top: 1px solid #9c9c9c;
+  border-bottom: 0px solid #ffffff;
+
+  position: relative; /* Needed for the unread dot positioning */
+}
+
+.search-card {
+  display: flex;
+  align-items: center; /* Vertically centers */
+  justify-content: center;
+  height: 50px;
+
+  /* 1. Shape and Size */
+  max-width: 300px;
+  border-radius: 5px; /* Smooth rounded corners */
+  margin-bottom: 15px;
+
+  /* 2. Colors */
+  background-color: #ffffff;
+  color: #333333;
+
+  /* 3. The "Elevation" Shadow */
+  /* Horizontal offset, Vertical offset, Blur radius, Spread, Color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  border: 1px solid #eeeeee; /* Light border for definition */
+}

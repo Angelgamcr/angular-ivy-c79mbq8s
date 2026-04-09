@@ -1,0 +1,19 @@
+<div style="font-family:Arial; margin-right: 15px;" class="card">
+  <h3>✈️ Flight {{ flight.id }}</h3>
+  <p>
+    <b>Type:</b> {{ flight.type }}
+    {{ flight.type === 'entering' ? '🛬' : '🛫' }}
+  </p>
+  <p><b>Destination:</b> {{ flight.destination }}</p>
+  <p><b>Capacity:</b> {{ flight.people }} 🚹</p>
+
+  <p
+    *ngIf="flight.people >= 180"
+    style="color:white; background-color: red; text-align: center;"
+  >
+    <b>MAX CAPACITY FLIGHT</b>
+  </p>
+
+  <button (click)="showMoreInfoAlert()">More Info</button>
+  <hr />
+</div>

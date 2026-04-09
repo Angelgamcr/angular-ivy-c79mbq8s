@@ -1,0 +1,18 @@
+.card {
+  /* 1. Shape and Size */
+  max-width: 300px;
+  padding: 10px;
+  padding-bottom: 25px;
+  border-radius: 12px; /* Smooth rounded corners */
+  margin-bottom: 5px;
+
+  /* 2. Colors */
+  background-color: #ffffff;
+  color: #333333;
+
+  /* 3. The "Elevation" Shadow */
+  /* Horizontal offset, Vertical offset, Blur radius, Spread, Color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  border: 1px solid #eeeeee; /* Light border for definition */
+}

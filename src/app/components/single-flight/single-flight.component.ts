@@ -9,7 +9,7 @@ import { FlightService } from '../../services/flight.service';
   styleUrls: ['./single-flight.component.css'],
 })
 export class SingleFlightComponent implements OnInit {
-  @Input() updateTime: number = 0;
+  // private updateTime: number = 0;
   @Input() flight: FlightData;
   @Output() flightUpdate = new EventEmitter<string>();
 
@@ -21,11 +21,6 @@ export class SingleFlightComponent implements OnInit {
     this.eventTimer();
   }
 
-  ngOnDestroy() {
-    if (this.timerId) {
-      clearTimeout(this.timerId);
-    }
-  }
 
   showMoreInfoAlert() {
     this.flightService.showMoreInfoAlert(this.flight);
@@ -34,19 +29,15 @@ export class SingleFlightComponent implements OnInit {
   // complete this method which works as a timer
   // for sending an update message
   // after updateTime is complete
-
   eventTimer(): void {
-    // TODO: FALTA COINCIDIR MENSAJES CON 'updateTime' CORRECTAMENTE
-    this.flightUpdate.emit(
-      `The flight ${this.flight.id} ${this.flight.updateTime}`
-    );
-    this.timerId = setTimeout(() => {
-      this.flightUpdate.emit(
-        `The flight ${this.flight.id} ${
-          this.flight.type === 'entering' ? 'landed' : 'took of'
-        }`
-      );
+    this.timerId = setInterval(() => {
+      const message = `The flight ${this.flight.id} ${
+        this.flight.type === 'entering' ? 'landed' : 'took off'
+      }`;
+
+      this.flightUpdate.emit(message);
+
+      clearInterval(this.timerId);
     }, this.flight.updateTime * 1000);
-    // }, this.updateTime * 1000);
   }
 }

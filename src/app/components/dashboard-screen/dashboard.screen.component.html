@@ -34,7 +34,6 @@
       <single-flight
         *ngFor="let flight of flightsFiltered"
         [flight]="flight"
-        [updateTime]="flight.updateTime"
         (flightUpdate)="onFlightUpdate($event)"
       >
       </single-flight>

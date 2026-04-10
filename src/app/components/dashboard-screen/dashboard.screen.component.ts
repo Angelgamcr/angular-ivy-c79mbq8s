@@ -34,8 +34,6 @@ export class DashboardScreen implements OnInit {
 
   // call this method when adding update messages
   onFlightUpdate = (updateMessage: string) => {
-    // TODO: FALTA COINCIDIR MENSAJES CON 'updateTime' CORRECTAMENTE
-    // TODO: BUG al filtrar?
     if (this.updateMessages.length == 0) {
       this.updateMessages.unshift(
         'Starting with the first flight of the day! ☀️'
